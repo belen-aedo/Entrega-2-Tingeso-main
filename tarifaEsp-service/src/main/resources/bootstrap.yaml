@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/bdtarifaEsp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: 1234
+    password: nueva_clave
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
