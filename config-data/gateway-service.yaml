@@ -1,0 +1,63 @@
+server:
+  port: 8080
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+        default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: tarifa-service
+          uri: lb://tarifa-service
+          predicates:
+            - Path=/tarifa/**
+        - id: usuario-service
+          uri: lb://usuario-service
+          predicates:
+            - Path=/usuario/**
+        - id: tarifaEsp-service
+          uri: lb://tarifaEsp-service
+          predicates:
+            - Path=/tarifaEsp/**
+        - id: descuentoNumPer-service
+          uri: lb://descuentoNumPer-service
+          predicates:
+            - Path=/descuentoNumPer/**
+        - id: descuentoClienFrec-service
+          uri: lb://descuentoClienFrec-service
+          predicates:
+            - Path=/descuentoClienFrec/**
+        - id: rackSemanal-service
+          uri: lb://rackSemanal-service
+          predicates:
+            - Path=/rackSemanal/**
+        - id: reporte-service
+          uri: lb://reporte-service
+          predicates:
+            - Path=/reporte/**
+        - id: reserva-service
+          uri: lb://reserva-service
+          predicates:
+            - Path=/reserva/**
+        - id: kart-service
+          uri: lb://kart-service
+          predicates:
+            - Path=/kart/**
