@@ -29,10 +29,7 @@ spring:
           uri: lb://tarifa-service
           predicates:
             - Path=/tarifa/**
-        - id: usuario-service
-          uri: lb://usuario-service
-          predicates:
-            - Path=/usuario/**
+
         - id: tarifaEsp-service
           uri: lb://tarifaEsp-service
           predicates:
@@ -44,7 +41,7 @@ spring:
         - id: descuentoClienFrec-service
           uri: lb://descuentoClienFrec-service
           predicates:
-            - Path=/descuentoClienFrec/**
+            - Path=/ofertasCliente/**
         - id: rackSemanal-service
           uri: lb://rackSemanal-service
           predicates:

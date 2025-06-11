@@ -1,8 +1,8 @@
 package com.example.kart_service.Controller;
 
 
-import com.example.kart_service.Entity.Kart;
-import com.example.kart_service.Service.KartServicio;
+import com.example.kart_service.Entity.KartEntity;
+import com.example.kart_service.Service.KartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,17 +13,17 @@ import java.util.List;
 @RequestMapping("/kart")
 public class KartControlador {
     @Autowired
-    private KartServicio kartServicio;
+    private KartService kartServicio;
 
     //Crear nuevo kart
     @PostMapping("/nuevoKart")
-    public ResponseEntity<Kart> nuevoKart(@RequestBody Kart kart) {
+    public ResponseEntity<KartEntity> nuevoKart(@RequestBody KartEntity kart) {
         return ResponseEntity.ok(kartServicio.nuevoKart(kart.getCodigo(), kart.getModelo(), kart.getEstado()));
     }
 
     // Obtener karts a partir de su estado (disponible, mantenimiento y ocupado)
     @GetMapping("/getKartsEstado")
-    public ResponseEntity<List<Kart>> getKartsEstado(@RequestParam String estado) {
+    public ResponseEntity<List<KartEntity>> getKartsEstado(@RequestParam String estado) {
         return ResponseEntity.ok(kartServicio.obtenerKartsEstado(estado));
     }
 

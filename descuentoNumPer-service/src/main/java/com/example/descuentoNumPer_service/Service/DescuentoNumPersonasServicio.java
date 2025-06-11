@@ -1,20 +1,18 @@
 package com.example.descuentoNumPer_service.Service;
 
 import com.example.descuentoNumPer_service.Entity.DescuentoNumPersonas;
-import com.example.descuentoNumPer_service.Model.Usuario;
-import com.example.descuentoNumPer_service.Repository.DescuentoNumPersonasRepositorio;
+import com.example.descuentoNumPer_service.Repository.DescNumPersRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DescuentoNumPersonasServicio {
     @Autowired
-    private DescuentoNumPersonasRepositorio descuentoNumPersonasRepositorio;
+    private DescNumPersRepositorio descuentoNumPersonasRepositorio;
 
     @Autowired
     private RestTemplate restTemplate;
